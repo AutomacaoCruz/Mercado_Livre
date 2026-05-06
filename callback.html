@@ -15,9 +15,17 @@ const code = params.get("code");
 
 if(code){
 
-  // REDIRECIONA PRO SEU SHINY
-  window.location.href =
-    "https://automacoescruz.shinyapps.io/shiny_mercado_livre/?code_ml=" + code;
+  // salva localmente
+  localStorage.setItem("ml_code", code);
+
+  // avisa
+  document.body.innerHTML =
+    "<h2>Conta conectada com sucesso ✅</h2><p>Você pode fechar esta aba.</p>";
+
+  // fecha sozinho depois
+  setTimeout(() => {
+    window.close();
+  }, 2000);
 
 }
 
