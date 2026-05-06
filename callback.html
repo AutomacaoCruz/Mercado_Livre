@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Conectando...</title>
+</head>
+<body>
+
+<h2>Conectando Mercado Livre...</h2>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+const code = params.get("code");
+
+if(code){
+
+  // REDIRECIONA PRO SEU SHINY
+  window.location.href =
+    "https://automacoescruz.shinyapps.io/shiny_mercado_livre/?code_ml=" + code;
+
+}
+
+</script>
+
+</body>
+</html>
