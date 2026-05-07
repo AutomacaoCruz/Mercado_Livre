@@ -2,47 +2,32 @@
 <html>
 
 <head>
-<meta charset="UTF-8">
-<title>Callback ML</title>
+  <meta charset="UTF-8">
+  <title>OAuth</title>
 </head>
 
 <body>
-
-<h2>Conectando Mercado Livre...</h2>
 
 <script>
 
 const params = new URLSearchParams(window.location.search);
 
-const code = params.get('code');
+const code = params.get("code");
 
-document.body.innerHTML += '<br>CODE: ' + code;
+if(code){
 
-document.body.innerHTML += '<br>WINDOW.OPENER: ' + (window.opener ? 'EXISTE' : 'NULL');
+  window.opener.Shiny.setInputValue(
+    "ml_code",
+    code,
+    {priority: "event"}
+  );
 
-console.log(window.opener);
-
-if(window.opener && code){
-
-    window.opener.postMessage(
-      {
-        type: 'ML_CODE',
-        code: code
-      },
-      '*'
-    );
-
-    document.body.innerHTML += '<br><br>ENVIADO PARA SHINY ✅';
-
-    setTimeout(function(){
-
-        window.close();
-
-    }, 2000);
+  window.close();
 
 }
 
 </script>
 
 </body>
+
 </html>
