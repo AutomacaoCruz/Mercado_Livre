@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-<meta charset="UTF-8">
-<title>Callback ML</title>
-</head>
-
-<body>
-
-<h2>Conectando Mercado Livre...</h2>
-
 <script>
 
 const params = new URLSearchParams(window.location.search);
@@ -19,18 +7,21 @@ const code = params.get("code");
 console.log("CODE:");
 console.log(code);
 
-if(code){
+if(window.opener && code){
 
-    localStorage.setItem("ml_code", code);
+    window.opener.localStorage.setItem("ml_code", code);
 
     document.body.innerHTML = `
       <h2>Conta conectada com sucesso ✅</h2>
       <p>Você pode fechar esta aba.</p>
     `;
 
+    setTimeout(function(){
+
+        window.close();
+
+    }, 1500);
+
 }
 
 </script>
-
-</body>
-</html>
