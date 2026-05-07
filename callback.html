@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Conectando...</title>
+<meta charset="UTF-8">
+<title>Conectando...</title>
 </head>
+
 <body>
 
 <h2>Conectando Mercado Livre...</h2>
@@ -13,19 +15,14 @@ const params = new URLSearchParams(window.location.search);
 
 const code = params.get("code");
 
+console.log("CODE:");
+console.log(code);
+
 if(code){
 
-  // salva localmente
-  localStorage.setItem("ml_code", code);
+    localStorage.setItem("ml_code", code);
 
-  // avisa
-  document.body.innerHTML =
-    "<h2>Conta conectada com sucesso ✅</h2><p>Você pode fechar esta aba.</p>";
-
-  // fecha sozinho depois
-  setTimeout(() => {
     window.close();
-  }, 2000);
 
 }
 
