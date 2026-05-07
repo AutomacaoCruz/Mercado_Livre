@@ -14,30 +14,31 @@
 
 const params = new URLSearchParams(window.location.search);
 
-const code = params.get("code");
+const code = params.get('code');
 
-console.log(code);
+document.body.innerHTML += '<br>CODE: ' + code;
+
+document.body.innerHTML += '<br>WINDOW.OPENER: ' + (window.opener ? 'EXISTE' : 'NULL');
+
+console.log(window.opener);
 
 if(window.opener && code){
 
     window.opener.postMessage(
       {
-        type: "ML_CODE",
+        type: 'ML_CODE',
         code: code
       },
-      "*"
+      '*'
     );
 
-    document.body.innerHTML = `
-      <h2>Conta conectada com sucesso ✅</h2>
-      <p>Você pode fechar esta aba.</p>
-    `;
+    document.body.innerHTML += '<br><br>ENVIADO PARA SHINY ✅';
 
     setTimeout(function(){
 
         window.close();
 
-    }, 1500);
+    }, 2000);
 
 }
 
