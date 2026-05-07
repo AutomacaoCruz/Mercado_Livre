@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
-<title>Conectando...</title>
+<title>Callback ML</title>
 </head>
 
 <body>
@@ -22,7 +23,10 @@ if(code){
 
     localStorage.setItem("ml_code", code);
 
-    window.close();
+    document.body.innerHTML = `
+      <h2>Conta conectada com sucesso ✅</h2>
+      <p>Você pode fechar esta aba.</p>
+    `;
 
 }
 
